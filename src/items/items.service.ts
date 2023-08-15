@@ -20,15 +20,15 @@ export class ItemsService {
     return list;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} item`;
+  async findOne(id: number) {
+    return await this.itemsModule.findById(id);
   }
 
-  update(id: number, updateItemDto: UpdateItemDto) {
-    return `This action updates a #${id} item`;
+  async update(id: number, updateItemDto: UpdateItemDto) {
+    return await this.itemsModule.updateOne({id},updateItemDto);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} item`;
+  async remove(id: number) {
+    return await this.itemsModule.findByIdAndRemove(id);
   }
 }
